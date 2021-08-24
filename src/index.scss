@@ -1,0 +1,838 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+}
+
+.hamburger-menu {
+    position: fixed;
+    z-index: 2;
+    background-color: #ff4dff;
+    width: 360px;
+    height: 100%;
+    box-shadow: 0 -5px 10px rgba(0,0,0, .3);
+    transform: translateX(360px);
+    transition: all .5s ease;
+    touch-action: none;
+    visibility: hidden;
+
+
+    .menu-links {
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        flex-direction: column;
+        // background-color: blue;
+        height: 350px;
+        width: 360px;
+        padding: 0 15px;
+        top: 200px;
+
+        .menu-main-link {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // background-color: cadetblue;
+            width: 260px;
+
+            .menu-input {
+                width: 105px;
+                border: 1px solid black;
+                font-size: 20px;
+            }
+
+            .search-button {
+                height: 26px;
+                padding: 0 10px;
+                border: 1px solid black;
+                cursor: pointer;
+            }
+        }
+
+        .menu-secondary-links-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-direction: column;
+            // background-color: burlywood;
+            height: 180px;
+            font-family: sans-serif;
+            
+            a {
+                color: white;
+                text-decoration: none;
+                transition: all .5s ease;
+            }
+            a:active {
+                color: rgb(242, 176, 255);
+            }
+        }
+    }
+}
+
+.navigation-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    // background-color: aqua;
+    height: 200px;
+    // padding: 10px 0;
+
+    .burger-container {
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 40px;
+        right: 10px;
+        height: 30px;
+        width: 30px;
+        // border: 2px solid black;
+        cursor: pointer;
+        transition: all .5s ease;
+
+        .burger {
+            height: 2px;
+            width: 20px;
+            background-color: black;
+            transition: all .5s ease;
+        }
+
+        .burger::after,
+        .burger::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            background-color: black;
+            transition: all .5s ease;
+        }
+
+        .burger::after {
+            transform: translateY(8px);
+        }
+        
+        .burger::before {
+            transform: translateY(-8px);
+        }
+
+    }
+    .burger-container.open {
+        .burger {
+            background: transparent;
+        }
+        .burger::before {
+            transform: rotate(45deg);
+        }
+        .burger::after {
+            transform: rotate(-45deg);
+        }
+    }
+    .burger-container.close {
+        .burger {
+            visibility: visible;
+        }
+        .burger::before {
+            transform: rotate(0deg) translateY(-8);
+        }
+        .burger::after {
+            transform: rotate(0deg) translateY(8);
+        }
+    }
+
+    .header-title-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        color: #ffa1ff;
+
+        .header-logo {
+            height: 80px;
+        }
+
+        .header-name {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 36px;
+        }
+
+        .header-store {
+            font-size: 18px;
+            font-family: sans-serif;
+            font-weight: lighter;
+        }
+    }
+
+    .navigation-bar-links-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(247, 247, 247);
+        width: 100%;
+        height: 35px;
+        visibility: hidden;
+
+        .navigation-bar-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // background-color:burlywood;
+            width: 700px;
+            padding: 0 10px;
+            font-family: sans-serif;
+            font-weight: lighter !important;
+        }
+
+        .navigation-search-bar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            // background-color: cadetblue;
+            width: 280px;
+
+            input {
+                border: 1px solid black;
+                font-size: 20px;
+            }
+
+            .search-button {
+                height: 26px;
+                padding: 0 10px;
+                border: 1px solid black;
+            }
+        }
+    }
+
+}
+
+.home-banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background: rgb(255, 228, 255);
+    background: radial-gradient(circle, rgb(255, 183, 255) 0%, rgb(255, 76, 255) 100%);
+
+    .banner-image {
+        position: absolute;
+        z-index: 1;
+        top: 20px;
+        left: 5px;
+        height: 150px;
+    }
+
+    .banner-shadow {
+        position: absolute;
+        top: 143px;
+        left: 5px;
+        height: 20px;
+        width: 100px;
+        border-radius: 50%;
+        background-color: rgba(0,0,0, .3);
+    }
+
+    .banner-text {
+        width: 150px;
+        text-align: center;
+        font-family: 'Patrick Hand', cursive;
+        font-size: 30px;
+        color: white;
+        // background-color: rosybrown;
+    }
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    .info-summary {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        // background-color: blue;
+        height: 200px;
+
+        .summary-title {
+            width: 270px;
+            text-align: center;
+            font-size: 28px;
+            font-family: 'Patrick Hand', cursive;
+            color: #ffa1ff;
+            // background-color: yellow;
+        }
+    
+        .summary-text {
+            padding: 0 1px;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    }
+
+    .features-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .feature-1 {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            // background-color: yellow;
+            height: 300px;
+            padding: 20px 0;
+
+            .feature-1-icon {
+                color: rgb(59, 59, 59);
+            }
+
+            .feature-1-title {
+                width: 270px;
+                text-align: center;
+                font-size: 26px;
+                font-family: 'Patrick Hand', cursive;
+                color: #ffa1ff;
+            }
+
+            .feature-1-text {
+                padding: 0 1px;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+
+        }
+        
+        .feature-2 {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            // background-color: yellow;
+            height: 300px;
+            padding: 20px 0;
+
+            .feature-2-icon {
+                color: rgb(59, 59, 59);
+            }
+
+            .feature-2-title {
+                width: 270px;
+                text-align: center;
+                font-size: 26px;
+                font-family: 'Patrick Hand', cursive;
+                color: #ffa1ff;
+            }
+
+            .feature-2-text {
+                padding: 0 1px;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+
+        }
+        
+        .feature-3 {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            // background-color: yellow;
+            height: 300px;
+            padding: 20px 0;
+
+            .feature-3-icon {
+                color: rgb(59, 59, 59);
+            }
+
+            .feature-3-title {
+                width: 270px;
+                text-align: center;
+                font-size: 26px;
+                font-family: 'Patrick Hand', cursive;
+                color: #ffa1ff;
+            }
+
+            .feature-3-text {
+                padding: 0 1px;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+
+        }
+
+        .feature-button {
+            height: 33px;
+            width: 150px;
+            background-color: #ffb2ff;
+            border: 2px solid #ffb2ff;
+            font-size: 14px;
+            font-family: sans-serif;
+            letter-spacing: .9px;
+            cursor: pointer;
+            transition: all .5s ease;
+        }
+        .feature-button:hover {
+            color: white;
+        }
+    }
+}
+
+.adoption-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .adoption-input-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // background-color: aqua;
+        width: 300px;
+        height: 100px;
+
+        input {
+            height: 26px;
+            width: 115px;
+            border: 1px solid black;
+            padding: 0 4px;
+            font-size: 16px;
+        }
+
+        button {
+            height: 26px;
+            padding: 0 7px;
+            border: 1px solid black;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+
+    .adoption-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 3000px;
+        gap: 0 10px;
+
+        .dog-info-container {
+            position: relative;
+            width: 165px;
+            height: 260px;
+            // background-color: aqua;
+            // border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 5px 0 rgba(0,0,0, .3);
+
+            .dog-image {
+                position: absolute;
+                top: 0;
+                height: 165px;
+                border-radius: 7px;
+            }
+
+            .dog-info {
+                z-index: 1;
+                position: absolute;
+                bottom: 0;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                height: 110px;
+                width: 165px;
+                border-top-left-radius: 10%;
+                border-top-right-radius: 10%;
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                background-color: #ff4cff;
+                color: white;
+
+                .dog-name {
+                    font-family: 'Patrick Hand', cursive;
+                    font-size: 20px;
+                    font-weight: lighter;
+                    letter-spacing: 1px;
+                }
+
+                .dog-adult-breed {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    // background-color: bisque;
+                    width: 130px;
+                    font-family: sans-serif;
+                    font-size: 12px;
+
+                    .dog-age {
+                        width: 65px;
+                    }
+
+                    .dog-breed{
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 65px;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .dog-distance {
+                    font-family: sans-serif;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.information-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    // background-color: yellow;
+    height: 600px;
+    padding: 0 10px;
+    font-family: sans-serif;
+
+    .breed-selection-container {
+        display: flex;
+        justify-content: space-between;
+        align-self: flex-start;
+        // background-color: violet;
+        height: 25px;
+        width: 260px;
+
+        label {
+            align-self: center;
+            font-size: 20px;
+        }
+
+        select {
+            border: 1px solid black;
+            font-size: 16px;
+            font-family: sans-serif;
+        }
+    }
+
+    .breed-info-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        // background-color: blue;
+        height: 520px;
+        // padding: 10px;
+
+        .breed-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            font-size: 12px;
+            // background-color: chartreuse;
+            height: 300px;
+
+            .breed-info-left {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-direction: column;
+                // background-color: chocolate;
+                height: 100%;
+                width: 110px;
+
+                h3 {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    background-color: rgb(253, 250, 236);
+                    height: 100%;
+                    width: 100%;
+                    border-left: 1px solid black;
+                    border-right: 1px solid black;
+                    border-bottom: 1px solid black;
+                    padding: 0 2px;
+                }
+
+                .breed-name {
+                    border-top: 1px solid black;
+                }
+            }
+            
+            .breed-info-right {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-direction: column;
+                // background-color: chocolate;
+                height: 100%;
+                width: 230px;
+
+                h3 {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    background-color: rgb(253, 250, 236);
+                    height: 100%;
+                    width: 100%;
+                    border-left: 1px solid black;
+                    border-right: 1px solid black;
+                    border-bottom: 1px solid black;
+                    padding: 0 5px;
+                }
+
+                .breed-name {
+                    border-top: 1px solid black;
+                }
+            }
+        }
+    }
+}
+
+.breed-image {
+    height: 200px;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 76, 255);
+    height: 180px;
+    font-family: sans-serif;
+    color: white;
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 8px;
+        font-family: sans-serif;
+        letter-spacing: .9px;
+    }
+
+    .contact-socials {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        // background-color: aqua;
+        height: 55px;
+
+        .socials {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // background-color: azure;
+            width: 130px;
+
+            .social-icon {
+                font-size: 18px;
+                cursor: pointer;
+            }
+        }
+
+        .trademark {
+            font-size: 14px;
+        }
+    }
+}
+
+// *************************************
+// *************************************
+//             Media Queries
+// *************************************
+// *************************************
+
+@media screen and (min-width: 515px) {
+    .adoption-input-container {
+        width: 400px !important;
+
+        input {
+            width: 150px !important;
+        }
+    }
+
+    .adoption-container {
+        height: 2300px !important;
+    }
+}
+
+@media screen and (min-width: 620px) {
+    .hamburger-menu {
+        width: 620px;
+        height: 100%;
+        transform: translateX(620px);
+        transition: all .5s ease;
+        touch-action: none;
+        visibility: hidden;
+
+        .menu-links {
+            width: 620px;
+        }
+    }
+
+    .banner-text {
+        width: 450px !important;
+        font-size: 40px !important;
+    }
+}
+
+@media screen and (min-width: 690px) {
+    .adoption-input-container {
+        width: 450px !important;
+
+        input {
+            width: 170px !important;
+        }
+    }
+
+    .adoption-container {
+        height: 1600px !important;
+    }
+}
+
+@media screen and (min-width: 865px) {
+    .dog-info-container {
+        width: 195px !important;
+        height: 290px !important;
+
+        .dog-image {
+            height: 195px !important;
+        }
+
+        .dog-info {
+            width: 195px !important;
+
+            .dog-name {
+                font-size: 24px !important;
+            }
+
+            .dog-adult-breed {
+                font-size: 14px !important;
+            }
+
+            .dog-distance {
+                font-size: 16px !important;
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 960px) {
+    .burger-container {
+        display: none !important;
+    }
+
+    .banner-image {
+        left: 70px !important;
+    }
+
+    .banner-shadow {
+        left: 70px !important;
+    }
+
+    .banner-text {
+        width: 550px !important;
+        font-size: 50px !important;
+    }
+
+    .navigation-bar-links-container {
+        visibility: visible !important;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .summary-title {
+        // background-color: cadetblue;
+        width: 430px !important;
+        font-size: 40px !important;
+    }
+
+    .features-section {
+        width: 100%;
+        justify-content: space-around !important;
+        flex-direction: row !important;
+    }
+}
+
+@media screen and (min-width: 1220px) {
+    .adoption-container {
+        width: 1220px !important;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .adoption-container {
+        width: 1440px !important;
+        gap: 0 30px !important;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .home-banner {
+        height: 400px;
+    
+        .banner-image {
+            left: 120px !important;
+            height: 370px;
+        }
+    
+        .banner-shadow {
+            top: 320px !important;
+            left: 90px !important;
+            height: 60px;
+            width: 300px;
+        }
+    
+        .banner-text {
+            width: 1000px !important;
+            font-size: 90px !important;
+        }
+    }
+
+    .features-section {
+        justify-content: space-around !important;
+        width: 100% !important;
+    }
+}
