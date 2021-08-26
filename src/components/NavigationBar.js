@@ -11,9 +11,11 @@ import logo from '../images/logo.png'
 
 const NavigationBar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [input, setInput] = useState('')
 
     const burgerContainerRef = useRef(undefined)
     const hamburgerMenuRef = useRef(undefined)
+    const breedInputRef = useRef(undefined)
 
     function openAndCloseMenu(e) {
         if(!isOpen) {
@@ -45,6 +47,11 @@ const NavigationBar = () => {
         e.target.parentNode.parentNode.parentNode.parentNode.parentNode.style.overflowY = 'visible'
     }
 
+    function navBreedSearch() {
+        setInput(breedInputRef.current.value)
+        breedInputRef.current.value = ''
+    }
+
     function preventDefaultAction(e) {
         e.preventDefault()
     }
@@ -66,10 +73,10 @@ const NavigationBar = () => {
                             <h3>Home</h3>
                         </Link>
                         <Link to='/adopt'>
-                            <h3>Adopt</h3>
+                            <h3 onClick={e => menuClose(e)}>Adopt</h3>
                         </Link>
                         <Link to='/learn'>
-                            <h3 onClick={e => menuClose(e)}>Learn</h3>
+                            <h3 onClick={e => menuClose(e)}>Breed Info</h3>
                         </Link>
                         <Link to='/'>
                             <h3>Shop</h3>
@@ -102,7 +109,7 @@ const NavigationBar = () => {
                             <h4>Adopt</h4>
                         </Link>
                         <Link to='/learn'>
-                            <h4>Learn</h4>
+                            <h4>Breed Info</h4>
                         </Link>
                         <Link to='/'>
                             <h4>Shop</h4>
@@ -112,9 +119,9 @@ const NavigationBar = () => {
                         </Link>
                     </div>
                     <div className="navigation-search-bar">
-                        <input type="text" placeholder='Enter Breed...' />
-                        <Link to='/adopt'>
-                            <button className="search-button"><i className="fas fa-search"></i></button>
+                        <input type="text" placeholder='Enter Breed...' ref={breedInputRef} />
+                        <Link to='/learn'>
+                            <button className="search-button" type='button' onClick={() => navBreedSearch()} ><i className="fas fa-search"></i></button>
                         </Link>
                     </div>
                 </div>
@@ -122,7 +129,7 @@ const NavigationBar = () => {
             <Switch>
                 <Route path='/' exact component={Home} />
                 <Route path='/adopt' component={Adopt} />
-                <Route path='/learn' component={Learn} />
+                <Route path='/learn' render={(props) => <Learn {...props} breedInput={input} />} />
             </Switch>
             <Footer />
         </React.Fragment>

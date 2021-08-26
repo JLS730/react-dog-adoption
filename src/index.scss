@@ -12,6 +12,7 @@ html, body {
 
 body {
     position: relative;
+    height: 100vh;
 }
 
 .hamburger-menu {
@@ -33,7 +34,6 @@ body {
         justify-content: space-around;
         align-items: flex-end;
         flex-direction: column;
-        // background-color: blue;
         height: 350px;
         width: 360px;
         padding: 0 15px;
@@ -50,7 +50,6 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            // background-color: cadetblue;
             width: 260px;
 
             .menu-input {
@@ -72,7 +71,6 @@ body {
             justify-content: space-between;
             align-items: flex-end;
             flex-direction: column;
-            // background-color: burlywood;
             height: 180px;
             font-family: sans-serif;
             
@@ -93,9 +91,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    // background-color: aqua;
     height: 200px;
-    // padding: 10px 0;
 
     .burger-container {
         position: absolute;
@@ -107,7 +103,6 @@ body {
         right: 10px;
         height: 30px;
         width: 30px;
-        // border: 2px solid black;
         cursor: pointer;
         transition: all .5s ease;
 
@@ -196,7 +191,6 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            // background-color:burlywood;
             width: 700px;
             padding: 0 10px;
             font-family: sans-serif;
@@ -207,12 +201,14 @@ body {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            // background-color: cadetblue;
             width: 280px;
 
             input {
+                height: 26px;
+                width: 214px;
                 border: 1px solid black;
-                font-size: 20px;
+                font-size: 16px;
+                padding: 0 3px;
             }
 
             .search-button {
@@ -258,7 +254,6 @@ body {
         font-family: 'Patrick Hand', cursive;
         font-size: 30px;
         color: white;
-        // background-color: rosybrown;
     }
 }
 
@@ -273,7 +268,6 @@ body {
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
-        // background-color: blue;
         height: 200px;
 
         .summary-title {
@@ -282,7 +276,6 @@ body {
             font-size: 28px;
             font-family: 'Patrick Hand', cursive;
             color: #ffa1ff;
-            // background-color: yellow;
         }
     
         .summary-text {
@@ -305,7 +298,6 @@ body {
             justify-content: space-around;
             align-items: center;
             flex-direction: column;
-            // background-color: yellow;
             height: 300px;
             padding: 20px 0;
 
@@ -337,7 +329,6 @@ body {
             justify-content: space-around;
             align-items: center;
             flex-direction: column;
-            // background-color: yellow;
             height: 300px;
             padding: 20px 0;
 
@@ -369,7 +360,6 @@ body {
             justify-content: space-around;
             align-items: center;
             flex-direction: column;
-            // background-color: yellow;
             height: 300px;
             padding: 20px 0;
 
@@ -423,7 +413,6 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // background-color: aqua;
         width: 300px;
         height: 100px;
 
@@ -456,8 +445,6 @@ body {
             position: relative;
             width: 165px;
             height: 260px;
-            // background-color: aqua;
-            // border: 2px solid black;
             border-radius: 10px;
             box-shadow: 0 4px 5px 0 rgba(0,0,0, .3);
 
@@ -496,7 +483,6 @@ body {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    // background-color: bisque;
                     width: 130px;
                     font-family: sans-serif;
                     font-size: 12px;
@@ -527,18 +513,40 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    // background-color: yellow;
     height: 600px;
     padding: 0 10px;
     font-family: sans-serif;
 
+    .breed-input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+
+        input {
+            height: 27px;
+            width: 226px;
+            padding: 0 3px;
+            border: 1px solid black;
+            font-size: 15px;
+        }
+
+        button {
+            border: 1px solid black;
+            padding: 3px 6px;
+
+            i {
+                font-size: 18px;
+            }
+        }
+    }
+
     .breed-selection-container {
         display: flex;
         justify-content: space-between;
-        align-self: flex-start;
-        // background-color: violet;
+        align-self: center;
         height: 25px;
-        width: 260px;
+        width: 300px;
 
         label {
             align-self: center;
@@ -557,77 +565,63 @@ body {
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        // background-color: blue;
         height: 520px;
-        // padding: 10px;
 
-        .breed-info {
+        .breed-image {
+            height: 200px;
+            background-color: #ffa1ff;
+            box-shadow: 0 2px 5px rgba(0,0,0, .3);
+        }
+
+        .breed-info tbody {
             display: flex;
             justify-content: space-around;
             align-items: flex-start;
-            font-size: 12px;
-            // background-color: chartreuse;
+            font-size: 15px;
             height: 300px;
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid black;
+            background-color: #ffa1ff;
+            box-shadow: 0 2px 5px rgba(0,0,0, .3);
 
             .breed-info-left {
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
                 align-items: flex-start;
                 flex-direction: column;
-                // background-color: chocolate;
-                height: 100%;
+                height: 99%;
                 width: 110px;
-
-                h3 {
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    background-color: rgb(253, 250, 236);
-                    height: 100%;
-                    width: 100%;
-                    border-left: 1px solid black;
-                    border-right: 1px solid black;
-                    border-bottom: 1px solid black;
-                    padding: 0 2px;
-                }
-
-                .breed-name {
-                    border-top: 1px solid black;
-                }
+                padding-left: 10px;
             }
             
             .breed-info-right {
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
                 align-items: flex-start;
                 flex-direction: column;
-                // background-color: chocolate;
-                height: 100%;
+                height: 99%;
                 width: 230px;
+                padding-left: 10px;
 
-                h3 {
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    background-color: rgb(253, 250, 236);
-                    height: 100%;
-                    width: 100%;
-                    border-left: 1px solid black;
-                    border-right: 1px solid black;
-                    border-bottom: 1px solid black;
-                    padding: 0 5px;
+                .temperment {
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    max-width: 100%;
                 }
-
-                .breed-name {
-                    border-top: 1px solid black;
+                
+                .bred-for {
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    max-width: 100%;
                 }
             }
         }
     }
-}
-
-.breed-image {
-    height: 200px;
 }
 
 .footer-section {
@@ -637,6 +631,7 @@ body {
     flex-direction: column;
     background-color: rgb(255, 76, 255);
     height: 180px;
+    width: 100%;
     font-family: sans-serif;
     color: white;
 
@@ -655,14 +650,12 @@ body {
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        // background-color: aqua;
         height: 55px;
 
         .socials {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            // background-color: azure;
             width: 130px;
 
             .social-icon {
@@ -694,6 +687,24 @@ body {
 
     .adoption-container {
         height: 2300px !important;
+    }
+
+    .information-section {
+        height: 750px;
+
+        .breed-info-container {
+            height: 615px;
+            width: 450px;
+
+            .breed-info {
+                width: 100%;
+            }
+        }
+    }
+
+    .breed-image {
+        
+        height: 300px !important;
     }
 }
 
@@ -729,6 +740,14 @@ body {
     .adoption-container {
         height: 1600px !important;
     }
+
+    .breed-info-container {
+        width: 580px !important;
+
+        .breed-info {
+            width: 100%;
+        }
+    }
 }
 
 @media screen and (min-width: 865px) {
@@ -756,6 +775,25 @@ body {
             }
         }
     }
+
+    .information-section {
+        height: 550px;
+
+        .breed-info-container {
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            width: 800px !important;
+            height: 300px !important;
+
+            .breed-info {
+                width: 100%;
+
+                .breed-info-left {
+                    align-items: flex-end !important;
+                }
+            }
+        }
+    }
     
 }
 
@@ -780,11 +818,14 @@ body {
     .navigation-bar-links-container {
         visibility: visible !important;
     }
+
+    .breed-input-container {
+        display: none !important;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .summary-title {
-        // background-color: cadetblue;
         width: 430px !important;
         font-size: 40px !important;
     }
@@ -794,18 +835,62 @@ body {
         justify-content: space-around !important;
         flex-direction: row !important;
     }
+
+    .information-section {
+        height: 550px;
+        padding-bottom: 30px;
+
+        .breed-info-container {
+            width: 1000px !important;
+
+            .breed-info {
+                width: 100%;
+
+                tbody {
+                    height: 350px;
+                }
+            }
+        }
+    }
+
+    .breed-image {
+        height: 400px !important;
+    }
 }
 
 @media screen and (min-width: 1220px) {
     .adoption-container {
         width: 1220px !important;
     }
+
+    
 }
 
 @media screen and (min-width: 1440px) {
     .adoption-container {
         width: 1440px !important;
         gap: 0 30px !important;
+    }
+
+    .information-section {
+        height: 550px;
+        padding-bottom: 30px;
+
+        .breed-info-container {
+            width: 1400px !important;
+            
+            .breed-info tbody {
+                font-size: 20px;
+            }
+
+            .breed-info-left {
+                width: 150px !important;
+            }
+            
+            .breed-info-right {
+                width: 600px !important;
+            }
+        }
     }
 }
 
@@ -834,5 +919,35 @@ body {
     .features-section {
         justify-content: space-around !important;
         width: 100% !important;
+    }
+    
+    .information-section {
+        height: 800px;
+
+        .breed-info-container {
+            width: 1700px !important;
+            height: 600px !important;
+
+            .breed-info {
+                width: 100%;
+                font-size: 20px;
+
+                tbody {
+                    height: 450px;
+                }
+
+                .breed-info-left {
+                    width: 200px;
+                }
+                
+                .breed-info-right {
+                    width: 500px;
+                }
+            }
+        }
+    }
+
+    .breed-image {
+        height: 500px !important;
     }
 }

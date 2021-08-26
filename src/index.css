@@ -12,6 +12,7 @@ html, body {
 
 body {
   position: relative;
+  height: 100vh;
 }
 
 .hamburger-menu {
@@ -284,8 +285,11 @@ body {
 }
 
 .navigation-bar .navigation-bar-links-container .navigation-search-bar input {
+  height: 26px;
+  width: 214px;
   border: 1px solid black;
-  font-size: 20px;
+  font-size: 16px;
+  padding: 0 3px;
 }
 
 .navigation-bar .navigation-bar-links-container .navigation-search-bar .search-button {
@@ -687,6 +691,36 @@ body {
   font-family: sans-serif;
 }
 
+.information-section .breed-input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 250px;
+}
+
+.information-section .breed-input-container input {
+  height: 27px;
+  width: 226px;
+  padding: 0 3px;
+  border: 1px solid black;
+  font-size: 15px;
+}
+
+.information-section .breed-input-container button {
+  border: 1px solid black;
+  padding: 3px 6px;
+}
+
+.information-section .breed-input-container button i {
+  font-size: 18px;
+}
+
 .information-section .breed-selection-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -694,10 +728,10 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  -ms-flex-item-align: center;
+      align-self: center;
   height: 25px;
-  width: 260px;
+  width: 300px;
 }
 
 .information-section .breed-selection-container label {
@@ -730,7 +764,14 @@ body {
   height: 520px;
 }
 
-.information-section .breed-info-container .breed-info {
+.information-section .breed-info-container .breed-image {
+  height: 200px;
+  background-color: #ffa1ff;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.information-section .breed-info-container .breed-info tbody {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -739,17 +780,22 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  font-size: 12px;
+  font-size: 15px;
   height: 300px;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid black;
+  background-color: #ffa1ff;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.information-section .breed-info-container .breed-info .breed-info-left {
+.information-section .breed-info-container .breed-info tbody .breed-info-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -757,41 +803,17 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
+  height: 99%;
   width: 110px;
+  padding-left: 10px;
 }
 
-.information-section .breed-info-container .breed-info .breed-info-left h3 {
+.information-section .breed-info-container .breed-info tbody .breed-info-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: #fdfaec;
-  height: 100%;
-  width: 100%;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  padding: 0 2px;
-}
-
-.information-section .breed-info-container .breed-info .breed-info-left .breed-name {
-  border-top: 1px solid black;
-}
-
-.information-section .breed-info-container .breed-info .breed-info-right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -799,36 +821,25 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
+  height: 99%;
   width: 230px;
+  padding-left: 10px;
 }
 
-.information-section .breed-info-container .breed-info .breed-info-right h3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: #fdfaec;
-  height: 100%;
-  width: 100%;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  padding: 0 5px;
+.information-section .breed-info-container .breed-info tbody .breed-info-right .temperment {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
-.information-section .breed-info-container .breed-info .breed-info-right .breed-name {
-  border-top: 1px solid black;
-}
-
-.breed-image {
-  height: 200px;
+.information-section .breed-info-container .breed-info tbody .breed-info-right .bred-for {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .footer-section {
@@ -846,6 +857,7 @@ body {
           flex-direction: column;
   background-color: #ff4cff;
   height: 180px;
+  width: 100%;
   font-family: sans-serif;
   color: white;
 }
@@ -918,6 +930,19 @@ body {
   .adoption-container {
     height: 2300px !important;
   }
+  .information-section {
+    height: 750px;
+  }
+  .information-section .breed-info-container {
+    height: 615px;
+    width: 450px;
+  }
+  .information-section .breed-info-container .breed-info {
+    width: 100%;
+  }
+  .breed-image {
+    height: 300px !important;
+  }
 }
 
 @media screen and (min-width: 620px) {
@@ -951,6 +976,12 @@ body {
   .adoption-container {
     height: 1600px !important;
   }
+  .breed-info-container {
+    width: 580px !important;
+  }
+  .breed-info-container .breed-info {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 865px) {
@@ -973,6 +1004,28 @@ body {
   .dog-info-container .dog-info .dog-distance {
     font-size: 16px !important;
   }
+  .information-section {
+    height: 550px;
+  }
+  .information-section .breed-info-container {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+    width: 800px !important;
+    height: 300px !important;
+  }
+  .information-section .breed-info-container .breed-info {
+    width: 100%;
+  }
+  .information-section .breed-info-container .breed-info .breed-info-left {
+    -webkit-box-align: end !important;
+        -ms-flex-align: end !important;
+            align-items: flex-end !important;
+  }
 }
 
 @media screen and (min-width: 960px) {
@@ -992,6 +1045,9 @@ body {
   .navigation-bar-links-container {
     visibility: visible !important;
   }
+  .breed-input-container {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1008,6 +1064,22 @@ body {
         -ms-flex-direction: row !important;
             flex-direction: row !important;
   }
+  .information-section {
+    height: 550px;
+    padding-bottom: 30px;
+  }
+  .information-section .breed-info-container {
+    width: 1000px !important;
+  }
+  .information-section .breed-info-container .breed-info {
+    width: 100%;
+  }
+  .information-section .breed-info-container .breed-info tbody {
+    height: 350px;
+  }
+  .breed-image {
+    height: 400px !important;
+  }
 }
 
 @media screen and (min-width: 1220px) {
@@ -1020,6 +1092,22 @@ body {
   .adoption-container {
     width: 1440px !important;
     gap: 0 30px !important;
+  }
+  .information-section {
+    height: 550px;
+    padding-bottom: 30px;
+  }
+  .information-section .breed-info-container {
+    width: 1400px !important;
+  }
+  .information-section .breed-info-container .breed-info tbody {
+    font-size: 20px;
+  }
+  .information-section .breed-info-container .breed-info-left {
+    width: 150px !important;
+  }
+  .information-section .breed-info-container .breed-info-right {
+    width: 600px !important;
   }
 }
 
@@ -1045,6 +1133,29 @@ body {
     -ms-flex-pack: distribute !important;
         justify-content: space-around !important;
     width: 100% !important;
+  }
+  .information-section {
+    height: 800px;
+  }
+  .information-section .breed-info-container {
+    width: 1700px !important;
+    height: 600px !important;
+  }
+  .information-section .breed-info-container .breed-info {
+    width: 100%;
+    font-size: 20px;
+  }
+  .information-section .breed-info-container .breed-info tbody {
+    height: 450px;
+  }
+  .information-section .breed-info-container .breed-info .breed-info-left {
+    width: 200px;
+  }
+  .information-section .breed-info-container .breed-info .breed-info-right {
+    width: 500px;
+  }
+  .breed-image {
+    height: 500px !important;
   }
 }
 /*# sourceMappingURL=index.css.map */
