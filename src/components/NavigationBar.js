@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Home from './Home'
 import Adopt from './Adopt'
 import Learn from './Learn'
+import Contact from './Contact'
 import Footer from './Footer'
 
 import logo from '../images/logo.png'
@@ -81,7 +82,7 @@ const NavigationBar = () => {
                         <Link to='/'>
                             <h3>Shop</h3>
                         </Link>
-                        <Link to='/'>
+                        <Link to='/contact'>
                             <h3>Contact</h3>
                         </Link>
                     </div>
@@ -114,7 +115,7 @@ const NavigationBar = () => {
                         <Link to='/'>
                             <h4>Shop</h4>
                         </Link>
-                        <Link to='/'>
+                        <Link to='/contact'>
                             <h4>Contact</h4>
                         </Link>
                     </div>
@@ -130,6 +131,7 @@ const NavigationBar = () => {
                 <Route path='/' exact component={Home} />
                 <Route path='/adopt' component={Adopt} />
                 <Route path='/learn' render={(props) => <Learn {...props} breedInput={input} />} />
+                <Route path='/contact' component={Contact} />
             </Switch>
             <Footer />
         </React.Fragment>

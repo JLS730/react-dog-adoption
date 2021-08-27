@@ -251,6 +251,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background-color: #f7f7f7;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 35px;
   visibility: hidden;
@@ -272,6 +274,17 @@ body {
   font-weight: lighter !important;
 }
 
+.navigation-bar .navigation-bar-links-container .navigation-bar-links a {
+  text-decoration: none;
+  color: #3b3b3b;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.navigation-bar .navigation-bar-links-container .navigation-bar-links a:hover {
+  color: #ff4dff;
+}
+
 .navigation-bar .navigation-bar-links-container .navigation-search-bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -290,6 +303,7 @@ body {
   border: 1px solid black;
   font-size: 16px;
   padding: 0 3px;
+  outline: none;
 }
 
 .navigation-bar .navigation-bar-links-container .navigation-search-bar .search-button {
@@ -567,6 +581,7 @@ body {
   border: 1px solid black;
   padding: 0 4px;
   font-size: 16px;
+  outline: none;
 }
 
 .adoption-section .adoption-input-container button {
@@ -589,8 +604,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 3000px;
-  gap: 0 10px;
+  min-height: 800px;
+  gap: 10px;
 }
 
 .adoption-section .adoption-container .dog-info-container {
@@ -600,12 +615,17 @@ body {
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .adoption-section .adoption-container .dog-info-container .dog-image {
   position: absolute;
   top: 0;
-  height: 165px;
+  height: 90%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
   border-radius: 7px;
 }
 
@@ -625,7 +645,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 110px;
+  height: 90px;
   width: 165px;
   border-top-left-radius: 10%;
   border-top-right-radius: 10%;
@@ -636,10 +656,15 @@ body {
 }
 
 .adoption-section .adoption-container .dog-info-container .dog-info .dog-name {
+  text-align: center;
   font-family: 'Patrick Hand', cursive;
   font-size: 20px;
   font-weight: lighter;
   letter-spacing: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
 }
 
 .adoption-section .adoption-container .dog-info-container .dog-info .dog-adult-breed {
@@ -662,6 +687,7 @@ body {
 }
 
 .adoption-section .adoption-container .dog-info-container .dog-info .dog-adult-breed .dog-breed {
+  text-align: end;
   overflow: hidden;
   white-space: nowrap;
   width: 65px;
@@ -766,7 +792,6 @@ body {
 
 .information-section .breed-info-container .breed-image {
   height: 200px;
-  background-color: #ffa1ff;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -782,9 +807,10 @@ body {
           align-items: flex-start;
   font-size: 15px;
   height: 300px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   border: 1px solid black;
+  border-radius: 7px;
   background-color: #ffa1ff;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -834,12 +860,123 @@ body {
   max-width: 100%;
 }
 
+.information-section .breed-info-container .breed-info tbody .breed-info-right .temperment-tooltip {
+  display: none;
+}
+
+.information-section .breed-info-container .breed-info tbody .breed-info-right .temperment:hover + .temperment-tooltip {
+  visibility: visible;
+}
+
 .information-section .breed-info-container .breed-info tbody .breed-info-right .bred-for {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 100%;
+}
+
+.form-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 547px;
+}
+
+.form-section .form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.form-section .form-container .contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #ffe3fe;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  height: 450px;
+  width: 520px;
+  border: 2px solid black;
+  padding: 0 10px;
+}
+
+.form-section .form-container .contact-form .form-containers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-section .form-container .contact-form .form-containers label {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.form-section .form-container .contact-form .form-containers input {
+  font-size: 14px;
+  width: 500px;
+}
+
+.form-section .form-container .contact-form .form-containers h3 {
+  font-size: 16px;
+  font-weight: lighter;
+  color: red;
+  visibility: hidden;
+}
+
+.form-section .form-container .contact-form .form-containers textarea {
+  width: 500px;
+  font-size: 16px;
+}
+
+.form-section .form-container .contact-form .form-submit-button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  padding: 0 20px;
+  border: 1px solid #636363;
+  border-radius: 4px;
 }
 
 .footer-section {
@@ -990,7 +1127,7 @@ body {
     height: 290px !important;
   }
   .dog-info-container .dog-image {
-    height: 195px !important;
+    height: 90%;
   }
   .dog-info-container .dog-info {
     width: 195px !important;
@@ -1019,7 +1156,7 @@ body {
     height: 300px !important;
   }
   .information-section .breed-info-container .breed-info {
-    width: 100%;
+    width: 60% !important;
   }
   .information-section .breed-info-container .breed-info .breed-info-left {
     -webkit-box-align: end !important;
@@ -1069,13 +1206,13 @@ body {
     padding-bottom: 30px;
   }
   .information-section .breed-info-container {
-    width: 1000px !important;
+    width: 1100px !important;
   }
   .information-section .breed-info-container .breed-info {
     width: 100%;
   }
   .information-section .breed-info-container .breed-info tbody {
-    height: 350px;
+    height: 400px;
   }
   .breed-image {
     height: 400px !important;
@@ -1146,7 +1283,7 @@ body {
     font-size: 20px;
   }
   .information-section .breed-info-container .breed-info tbody {
-    height: 450px;
+    height: 500px;
   }
   .information-section .breed-info-container .breed-info .breed-info-left {
     width: 200px;

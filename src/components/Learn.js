@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
-import ClipLoader from "react-spinners/ClipLoader"
+import { BeatLoader } from "react-spinners"
 
-import placeholder from '../images/dog-placeholder2.jpg'
+import noImage from '../images/no-image.png'
 
 const Learn = ({ breedInput }) => {
-    const [isOn, setIsOn] = useState(false)
     const [breed, setBreed] = useState(undefined)
     const [currentBreed, setCurrentBreed] = useState(undefined)
     const [input, setInput] = useState('')
@@ -56,11 +55,21 @@ const Learn = ({ breedInput }) => {
     }
 
     function test() {
-        // setIsOn(!isOn)
-        // console.log(isOn)
-        // console.log(breed)
         console.log(currentBreed)
-        // console.log(breedInput)
+    }
+
+    function getImageUrl() {
+        if(currentBreed !== undefined) {
+            let url = `https://cdn2.thedogapi.com/images/${currentBreed.reference_image_id}.jpg`
+
+            if(url === 'https://cdn2.thedogapi.com/images/undefined.jpg') {
+                return noImage
+            }
+
+            return url
+        } else {
+            return noImage
+        }
     }
 
     return (
@@ -70,7 +79,7 @@ const Learn = ({ breedInput }) => {
                 <input type="text" placeholder='Enter Breed' ref={breedInputRef} onChange={e => setInput(e.target.value)} />
                 <button type='button' onClick={e => breedSearch(e)}><i className="fas fa-search"></i></button>
             </div>
-            {breed === undefined ? <ClipLoader size={300} /> : 
+            {breed === undefined ? <BeatLoader size={30} /> : 
 
                 <React.Fragment>
                     <div className="breed-selection-container">
@@ -82,27 +91,7 @@ const Learn = ({ breedInput }) => {
                         </select>
                     </div>
                     <div className="breed-info-container">
-                        <img className='breed-image' src={`https://cdn2.thedogapi.com/images/${currentBreed !== undefined && currentBreed.reference_image_id}.jpg`} alt="" ref={breedImageRef} />
-                        {/* <div className="breed-info">
-                            <div className="breed-info-left">
-                                <h3 className="breed-name">Breed:</h3>
-                                <h3 className="breed-group">Breed Group:</h3>
-                                <h3 className="bred-for">Breed For:</h3>
-                                <h3 className="height">Height:</h3>
-                                <h3 className="weight">Weight:</h3>
-                                <h3 className="life-span">Life Span:</h3>
-                                <h3 className="temperment">Peronality:</h3>
-                            </div>
-                            <div className="breed-info-right">
-                                <h3 className="breed-name">{currentBreed !== undefined && currentBreed.name}</h3>
-                                <h3 className="breed-group">{currentBreed !== undefined && currentBreed.breed_group}</h3> 
-                                <h3 className="bred-for">{currentBreed !== undefined && currentBreed.bred_for}</h3>
-                                <h3 className="height">{currentBreed !== undefined && currentBreed.height.imperial} cm</h3>
-                                <h3 className="weight">{currentBreed !== undefined && currentBreed.weight.imperial} kgs</h3>
-                                <h3 className="life-span">{currentBreed !== undefined && currentBreed.life_span}</h3>
-                                <h3 className="temperment">{currentBreed !== undefined && currentBreed.temperament}</h3>
-                            </div>
-                        </div> */}
+                        <img className='breed-image' src={getImageUrl()} alt="" ref={breedImageRef} />
                         <table className="breed-info">
                             <tbody>
                                 <tr className="breed-info-left">
@@ -118,10 +107,11 @@ const Learn = ({ breedInput }) => {
                                     <td className="breed-name">{currentBreed !== undefined && currentBreed.name}&nbsp;</td>
                                     <td className="breed-group">{currentBreed !== undefined && currentBreed.breed_group}&nbsp;</td> 
                                     <td className="bred-for">{currentBreed !== undefined && currentBreed.bred_for}&nbsp;</td>
-                                    <td className="height">{currentBreed !== undefined && currentBreed.height.imperial} cm</td>
-                                    <td className="weight">{currentBreed !== undefined && currentBreed.weight.imperial} kgs</td>
+                                    <td className="height">{currentBreed !== undefined && `${currentBreed.height.imperial} cm`}&nbsp;</td>
+                                    <td className="weight">{currentBreed !== undefined && `${currentBreed.weight.imperial} kgs`}&nbsp;</td>
                                     <td className="life-span">{currentBreed !== undefined && currentBreed.life_span}&nbsp;</td>
                                     <td className="temperment">{currentBreed !== undefined && currentBreed.temperament}&nbsp;</td>
+                                    <td className="temperment-tooltip">{currentBreed !== undefined && currentBreed.temperament}&nbsp;</td>
                                 </tr>
                             </tbody>
                         </table>

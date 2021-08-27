@@ -16,7 +16,7 @@ const Footer = () => {
                     <i className="fab fa-twitter social-icon"></i>
                     <i className="fab fa-youtube social-icon"></i>
                 </div>
-                <h2 className="trademark"><i className="far fa-copyright"></i>2023 git-A-Puppy Adoption Site</h2>
+                <h2 className="trademark"><i className="far fa-copyright"></i>2023 git-A-Pup Adoption Site</h2>
             </div>
         </footer>
     )
