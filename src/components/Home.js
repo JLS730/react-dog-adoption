@@ -19,7 +19,7 @@ const Home = () => {
                     <div className="feature-1">
                         <i className="fas fa-hand-holding-heart fa-4x feature-1-icon"></i>
                         <h2 className="feature-1-title">Show Love</h2>
-                        <p className="feature-1-text">Browse through hundreds of puupies who are just perfect for adoption!</p>
+                        <p className="feature-1-text">Look through hundreds of puppies who are just perfect for adoption!</p>
                         <button className="feature-1-button feature-button">Show Love</button>
                     </div>
                     <div className="feature-2">

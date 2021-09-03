@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 
 * {
     padding: 0;
@@ -537,7 +538,7 @@ body {
     flex-direction: column;
     height: 600px;
     padding: 0 10px;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 
     .breed-input-container {
         display: flex;
@@ -591,11 +592,14 @@ body {
 
         .breed-image {
             height: 200px;
+            width: 250px;
             // background-color: #ffa1ff;
             box-shadow: 0 2px 5px rgba(0,0,0, .3);
+            object-fit: cover;
+            overflow: hidden;
         }
 
-        .breed-info tbody {
+        .breed-info {
             display: flex;
             justify-content: space-around;
             align-items: flex-start;
@@ -603,52 +607,87 @@ body {
             height: 300px;
             width: 100%;
             margin: 0 auto;
-            border: 1px solid black;
+            // border: 1px solid black;
             border-radius: 7px;
-            background-color: #ffa1ff;
-            box-shadow: 0 2px 5px rgba(0,0,0, .3);
+            // background-color: #ffa1ff;
+            // box-shadow: 0 2px 5px rgba(0,0,0, .3);
 
             .breed-info-left {
                 display: flex;
                 justify-content: space-around;
-                align-items: flex-start;
+                align-items: center;
                 flex-direction: column;
                 height: 99%;
-                width: 110px;
-                padding-left: 10px;
-            }
-            
-            .breed-info-right {
-                display: flex;
-                justify-content: space-around;
-                align-items: flex-start;
-                flex-direction: column;
-                height: 99%;
-                width: 230px;
-                padding-left: 10px;
+                width: 100%;
+                // padding-left: 10px;
+                font-weight: lighter;
 
-                .temperment {
-                    display: block;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    max-width: 100%;
-                }
-                .temperment-tooltip {
+                .breed-about {
                     display: none;
                 }
-                .temperment:hover + .temperment-tooltip {
-                    visibility: visible;
+
+                .breed-name-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    select {
+                        padding-left: 4px;
+                        border: none;
+                        font-size: 15px;
+                    }
                 }
-                
-                .bred-for {
-                    display: block;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    max-width: 100%;
+
+                .bred-for-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .temperament-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    text-align: center;
+
+
                 }
             }
+            
+            // .breed-info-right {
+            //     display: flex;
+            //     justify-content: space-around;
+            //     align-items: flex-start;
+            //     flex-direction: column;
+            //     height: 99%;
+            //     width: 230px;
+            //     padding-left: 10px;
+
+            //     .temperment {
+            //         display: block;
+            //         overflow: hidden;
+            //         white-space: nowrap;
+            //         text-overflow: ellipsis;
+            //         max-width: 100%;
+            //     }
+            //     .temperment-tooltip {
+            //         display: none;
+            //     }
+            //     .temperment:hover + .temperment-tooltip {
+            //         visibility: visible;
+            //     }
+                
+            //     .bred-for {
+            //         display: block;
+            //         overflow: hidden;
+            //         white-space: nowrap;
+            //         text-overflow: ellipsis;
+            //         max-width: 100%;
+            //     }
+            // }
         }
     }
 }
@@ -798,13 +837,21 @@ body {
 
             .breed-info {
                 width: 100%;
+
+                .breed-info-left {
+                    font-size: 17px;
+
+                    .breed-name-container select {
+                        font-size: 15px;
+                    }
+                }
             }
         }
     }
 
     .breed-image {
-        
         height: 300px !important;
+        width: 350px !important;
     }
 }
 
@@ -883,14 +930,37 @@ body {
         .breed-info-container {
             flex-direction: row !important;
             justify-content: space-between !important;
-            width: 800px !important;
+            width: 850px !important;
             height: 300px !important;
 
             .breed-info {
                 width: 60% !important;
 
                 .breed-info-left {
-                    align-items: flex-end !important;
+                    align-items: flex-start !important;
+
+                    .breed-about {
+                        display: unset;
+                        // background-color: #ff4dff;
+                        width: 100px;
+                        border-bottom: 2px solid rgb(100, 100, 100);
+                    }
+
+                    .bred-for-container {
+                        flex-direction: row !important;
+
+                        .bred-for-details {
+                            padding-left: 8px !important;
+                        }
+                    }
+                    
+                    .temperament-container {
+                        flex-direction: row !important;
+
+                        .temperament-details {
+                            padding-left: 8px !important;
+                        }
+                    }
                 }
             }
         }
@@ -923,6 +993,19 @@ body {
     .breed-input-container {
         display: none !important;
     }
+
+    .information-section {
+
+
+        .breed-info-container {
+            width: 900px !important;
+    
+            .breed-info {
+                width: 500px !important;
+            }
+        }
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -942,13 +1025,27 @@ body {
         padding-bottom: 30px;
 
         .breed-info-container {
+            align-items: center !important;
             width: 1100px !important;
+            height: 400px !important;
 
             .breed-info {
-                width: 100%;
+                height: 400px;
+                width: 650px !important;
 
-                tbody {
-                    height: 400px;
+                .breed-info-left {
+                    height: 100% !important;
+                }
+
+                .breed-about {
+                    width: 230px !important;
+                    font-size: 60px;
+                }
+
+                .breed-name-container {
+                    height: 100px;
+                    justify-content: flex-start !important;
+                    align-items: flex-start !important;
                 }
             }
         }
@@ -956,6 +1053,9 @@ body {
 
     .breed-image {
         height: 400px !important;
+        width: 400px !important;
+        object-fit: cover;
+        overflow: hidden;
     }
 }
 
@@ -979,17 +1079,20 @@ body {
 
         .breed-info-container {
             width: 1400px !important;
-            
-            .breed-info tbody {
-                font-size: 20px;
+
+            .breed-info {
+                width: 950px !important;
             }
 
             .breed-info-left {
-                width: 150px !important;
-            }
+                width: 100% !important;
+                font-size: 20px !important;
             
-            .breed-info-right {
-                width: 600px !important;
+                .breed-name-container select {
+                    font-size: 19px !important;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 300;
+                }
             }
         }
     }
@@ -1031,18 +1134,15 @@ body {
 
             .breed-info {
                 width: 100%;
+                height: 500px;
                 font-size: 20px;
 
-                tbody {
-                    height: 500px;
-                }
-
                 .breed-info-left {
-                    width: 200px;
-                }
-                
-                .breed-info-right {
-                    width: 500px;
+                    height: 100%;
+
+                    .breed-name-container select {
+                        font-size: 20px !important;
+                    }
                 }
             }
         }
@@ -1050,5 +1150,6 @@ body {
 
     .breed-image {
         height: 500px !important;
+        width: 650px !important;
     }
 }
