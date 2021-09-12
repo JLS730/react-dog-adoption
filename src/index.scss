@@ -269,6 +269,21 @@ body {
     }
 }
 
+.google-ads {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    // background-color: red;
+
+    .google-ad {
+        width: 250px;
+        height: 250px;
+        background-color: beige;
+    }
+}
+
 .info-section {
     display: flex;
     justify-content: space-around;
@@ -526,6 +541,40 @@ body {
                     font-family: sans-serif;
                     font-size: 14px;
                 }
+            }
+        }
+    }
+
+    .page-selection-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // background-color: cadetblue;
+        width: 250px;
+        padding: 15px 0;
+
+        i {
+            cursor: pointer;
+        }
+
+        .numbers-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // background-color: chartreuse;
+            // width: 200px;
+            
+            input {
+                width: 50px;
+                text-align: center;
+                padding: 0 2px;
+                font-size: 17px;
+            }
+            
+            h3 {
+                padding-left: 10px;
+                font-family: sans-serif;
+                cursor: pointer;
             }
         }
     }

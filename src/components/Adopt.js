@@ -6,22 +6,11 @@ import noImage from '../images/no-image.png'
 
 const Adopt = () => {
     const [adoptionList, setAdoptionList] = useState(undefined)
+    const [pagination, setPagination] = useState(undefined)
 
     const breedRef = useRef(null)
     const zipRef = useRef(null)
-
-    // useEffect(() => {
-    //     axios.get(`https://api.petfinder.com/v2/animals?type=dog&location=20722&breed=husky&page=1`, {
-    //         headers: {
-    //             Authorization: `Bearer ${process.env.REACT_APP_PETFINDER_TOKEN}`
-    //         }
-    //     }).then((data) => {
-    //         console.log(data.data)
-    //         setAdoptionList(data.data.animals)
-    //     }).catch((error) => {
-    //         console.log(error)
-    //     })
-    // }, [])
+    const pageInputRef = useRef(null)
 
     function petFinderRedirect(url) {
         window.open(url, '_blank')
@@ -46,6 +35,7 @@ const Adopt = () => {
             }).then((data) => {
                 console.log(data.data)
                 setAdoptionList(data.data.animals)
+                setPagination(data.data.pagination)
                 searchConfirm()
             }).catch((error) => {
                 console.log(error)
@@ -59,6 +49,7 @@ const Adopt = () => {
             }).then((data) => {
                 console.log(data.data)
                 setAdoptionList(data.data.animals)
+                setPagination(data.data.pagination)
                 searchConfirm()
             }).catch((error) => {
                 console.log(error)
@@ -72,6 +63,7 @@ const Adopt = () => {
             }).then((data) => {
                 console.log(data.data)
                 setAdoptionList(data.data.animals)
+                setPagination(data.data.pagination)
                 searchConfirm()
             }).catch((error) => {
                 console.log(error)
@@ -82,8 +74,79 @@ const Adopt = () => {
         }
     }
 
+    function previousPage() {
+        if(pagination.current_page === 1) {
+            return
+        } else {
+            axios.get(`https://api.petfinder.com${pagination._links.previous.href}`, {
+                headers: {
+                    Authorization: `Bearer ${process.env.REACT_APP_PETFINDER_TOKEN}`
+                }
+            }).then((data) => {
+                setPagination(data.data.pagination)
+                setAdoptionList(data.data.animals)
+            }).catch((error) => {
+                console.log(error)
+            })
+
+            pageInputRef.current.value = ''
+        }
+    }
+
+    function enterPageNumber(e) {
+        if(e.target.value < 1 || e.target.value > pagination.total_pages) {
+            return
+        } else {
+            if(pagination._links.next === undefined) {
+                axios.get(`https://api.petfinder.com${pagination._links.previous.href.replace(`page=${pagination.current_page - 1}`, `page=${e.target.value}`)}`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.REACT_APP_PETFINDER_TOKEN}`
+                    }
+                }).then((data) => {
+                    setPagination(data.data.pagination)
+                    setAdoptionList(data.data.animals)
+                }).catch((error) => {
+                    console.log(error)
+                })
+            } else {
+                axios.get(`https://api.petfinder.com${pagination._links.next.href.replace(`page=${pagination.current_page + 1}`, `page=${e.target.value}`)}`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.REACT_APP_PETFINDER_TOKEN}`
+                    }
+                }).then((data) => {
+                    setPagination(data.data.pagination)
+                    setAdoptionList(data.data.animals)
+                }).catch((error) => {
+                    console.log(error)
+                })
+
+                pageInputRef.current.value = ''
+            }
+        }
+    }
+    
+    function nextPage() {
+        if(pagination.current_page === pagination.total_pages) {
+            return
+        } else {
+            axios.get(`https://api.petfinder.com${pagination._links.next.href}`, {
+                headers: {
+                    Authorization: `Bearer ${process.env.REACT_APP_PETFINDER_TOKEN}`
+                }
+            }).then((data) => {
+                setPagination(data.data.pagination)
+                setAdoptionList(data.data.animals)
+            }).catch((error) => {
+                console.log(error)
+            })
+
+            pageInputRef.current.value = ''
+        }
+    }
+
     function test() {
-        console.log(adoptionList)        
+        console.log(pagination)
+        console.log(adoptionList)
     }
 
     return (
@@ -94,7 +157,7 @@ const Adopt = () => {
                 <button type='button' onClick={adoptionSearch}>Search</button>
             </div>
             <main className="adoption-container">
-                {/* <button type='button' onClick={test}>Test</button> */}
+                <button type='button' onClick={test}>Test</button>
                 {adoptionList === undefined ? <BeatLoader size={40} css={'align-self: flex-start;'} /> : adoptionList.map(list => {
                     return (
                         <div className="dog-info-container" onClick={() => petFinderRedirect(list.url)}>
@@ -111,6 +174,24 @@ const Adopt = () => {
                     )
                 }) }
             </main>
+            {pagination !== undefined && 
+                <section className="page-selection-container">
+                    <div className="left-arrow-container">
+                        <i className="fas fa-chevron-left" onClick={() => previousPage()}></i>
+                    </div>
+                    <div className="numbers-container">
+                        <input type="text" ref={pageInputRef} placeholder={pagination.current_page} onKeyPress={e => {
+                            if(e.key === 'Enter') {
+                                enterPageNumber(e)
+                            }
+                        }}/>
+                        <h3 className="total-pages">of {pagination.total_pages}</h3>
+                    </div>
+                    <div className="right-arrow-container">
+                        <i className="fas fa-chevron-right" onClick={() => nextPage()}></i>
+                    </div>
+                </section>
+            }
         </section>
     )
 }

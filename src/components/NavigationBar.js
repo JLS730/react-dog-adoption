@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Home from './Home'
 import Adopt from './Adopt'
 import Learn from './Learn'
+import Shop from './Shop'
 import Contact from './Contact'
 import Footer from './Footer'
 
@@ -79,7 +80,7 @@ const NavigationBar = () => {
                         <Link to='/learn'>
                             <h3 onClick={e => menuClose(e)}>Breed Info</h3>
                         </Link>
-                        <Link to='/'>
+                        <Link to='/shop'>
                             <h3>Shop</h3>
                         </Link>
                         <Link to='/contact'>
@@ -112,8 +113,8 @@ const NavigationBar = () => {
                         <Link to='/learn'>
                             <h4>Breed Info</h4>
                         </Link>
-                        <Link to='/'>
-                            <h4>Shop</h4>
+                        <Link to='/shop'>
+                            <h4>Shop ( <span className="shopping-cart-number">0</span> ) </h4>
                         </Link>
                         <Link to='/contact'>
                             <h4>Contact</h4>
@@ -131,6 +132,7 @@ const NavigationBar = () => {
                 <Route path='/' exact component={Home} />
                 <Route path='/adopt' component={Adopt} />
                 <Route path='/learn' render={(props) => <Learn {...props} breedInput={input} />} />
+                <Route path='/shop' component={Shop} />
                 <Route path='/contact' component={Contact} />
             </Switch>
             <Footer />

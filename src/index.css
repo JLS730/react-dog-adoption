@@ -355,6 +355,26 @@ body {
   color: white;
 }
 
+.google-ads {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 300px;
+  width: 100%;
+}
+
+.google-ads .google-ad {
+  width: 250px;
+  height: 250px;
+  background-color: beige;
+}
+
 .info-section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -698,6 +718,49 @@ body {
 .adoption-section .adoption-container .dog-info-container .dog-info .dog-distance {
   font-family: sans-serif;
   font-size: 14px;
+}
+
+.adoption-section .page-selection-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 250px;
+  padding: 15px 0;
+}
+
+.adoption-section .page-selection-container i {
+  cursor: pointer;
+}
+
+.adoption-section .page-selection-container .numbers-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.adoption-section .page-selection-container .numbers-container input {
+  width: 50px;
+  text-align: center;
+  padding: 0 2px;
+  font-size: 17px;
+}
+
+.adoption-section .page-selection-container .numbers-container h3 {
+  padding-left: 10px;
+  font-family: sans-serif;
+  cursor: pointer;
 }
 
 .information-section {

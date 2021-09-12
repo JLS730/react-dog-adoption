@@ -10,6 +10,9 @@ const Home = () => {
                 <div className="banner-shadow"></div>
                 <h2 className="banner-text">Come {'&'} Meet A Fluffy Friend</h2>
             </figure>
+            <div className="google-ads">
+                <div className="google-ad"></div>
+            </div>
             <main className="info-section">
                 <section className="info-summary">
                     <h2 className="summary-title">Plenty Of Friends To Choose From</h2>
